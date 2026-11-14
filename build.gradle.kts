@@ -22,4 +22,5 @@ dependencies {
     implementation("io.ktor:ktor-serialization-kotlinx-json:3.6.1")
     implementation("com.microsoft.sqlserver:mssql-jdbc:13.4.0.jre11")
     implementation("ch.qos.logback:logback-classic:1.5.18")
+    implementation("org.mindrot:jbcrypt:0.4")
 }
