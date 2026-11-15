@@ -22,8 +22,7 @@ import com.example.sistemavet.modulo.rutasConsultasProp
 
 
 
-fun main() { // A la hora de correr presionen edit y lo corren de ahi con las credenciales de la base de datos.
-    // Si no te dicen
+fun main() {
     embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
         .start(wait = true)
 }
