@@ -1,5 +1,6 @@
 package com.example.sistemavet
 
+import com.example.sistemavet.modulo.notificacionRoutes
 import com.example.sistemavet.modulo.usuarioRoutes
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.Application
@@ -55,6 +56,8 @@ fun Application.module() {
 
         // Login, activacion de cuentas
         usuarioRoutes()
+        // notificaciones las obtiene y si las leyo
+        notificacionRoutes()
 
     }
 }

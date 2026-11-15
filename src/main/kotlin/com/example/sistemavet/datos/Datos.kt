@@ -1,5 +1,6 @@
 package com.example.sistemavet.datos
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 
@@ -7,8 +8,8 @@ import kotlinx.serialization.Serializable
 // El rol se decide en el servidor
 @Serializable
 data class RegistroRequest(
-    val nombre: String,
-    val ide: String,
+    @SerialName("nombreCompleto") val nombre: String,
+    @SerialName("identificacion") val ide: String,
     val correo: String,
     val telefono: String,
     val contrasena: String
@@ -28,4 +29,17 @@ data class UsuarioSesion(
     val rol: String,
     val cuentaActivada: Boolean,
     val token: String?
+)
+
+// Para notificaciones
+@Serializable
+data class Notificacion(
+    val id: Int,
+    val usuarioId: Int,
+    val tipo: String,
+    val titulo: String,
+    val mensaje: String,
+    val referenciaId: Int,
+    val fechaEnvio: String,
+    val leida: Boolean
 )
