@@ -1,4 +1,4 @@
-package com.example.sistemavetapi // ← ajusten al package real de la API
+package com.example.sistemavet.modulo
 
 import kotlinx.serialization.Serializable
 

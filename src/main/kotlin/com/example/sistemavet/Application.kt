@@ -1,5 +1,6 @@
 package com.example.sistemavet
 
+import com.example.sistemavet.modulo.ConsultasPropRepo
 import com.example.sistemavet.modulo.notificacionRoutes
 import com.example.sistemavet.modulo.usuarioRoutes
 import io.ktor.http.HttpStatusCode
@@ -17,6 +18,9 @@ import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import kotlinx.serialization.json.Json
 import com.example.sistemavet.modulo.citaRoutes
 import com.example.sistemavet.modulo.mascotaRoutes
+import com.example.sistemavet.modulo.rutasConsultasProp
+
+
 
 fun main() { // A la hora de correr presionen edit y lo corren de ahi con las credenciales de la base de datos.
     // Si no te dicen
@@ -62,6 +66,7 @@ fun Application.module() {
         notificacionRoutes()
         citaRoutes()
         mascotaRoutes()
+       rutasConsultasProp()
 
     }
 }
