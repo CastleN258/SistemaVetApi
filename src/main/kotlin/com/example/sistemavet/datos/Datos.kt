@@ -43,3 +43,49 @@ data class Notificacion(
     val fechaEnvio: String,
     val leida: Boolean
 )
+
+// Para solicitar citas
+@Serializable
+data class Opcion(
+      val id: Int
+    , val nombre: String)
+
+@Serializable
+data class SolicitudCitaRequest(
+    val propietarioId: Int,
+    val mascotaId: Int,
+    val veterinarioId: Int,
+    val fecha: String,    // dd/MM/yyyy
+    val hora: String,     // HH:mm
+    val motivo: String
+)
+
+@Serializable
+data class CitaCreada(
+    val id: Int
+)
+
+// Para registrar la mascota
+@Serializable
+data class MascotaRequest(
+    val propietarioId: Int, // Se manda el id pero se ignora
+    val nombre: String,
+    val especie: String,
+    val raza: String,
+    val sexo: String,              // "MACHO" o "HEMBRA"
+    val fechaNacimiento: String,   // dd/MM/yyyy
+    val pesoAproximado: Double
+)
+
+@Serializable
+data class MascotaCreada(
+    val id: Int,
+    val propietarioId: Int,
+    val nombre: String,
+    val especie: String,
+    val raza: String,
+    val sexo: String,
+    val fechaNacimiento: String,
+    val pesoAproximado: Double
+)
+

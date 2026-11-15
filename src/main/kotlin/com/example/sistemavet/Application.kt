@@ -15,6 +15,8 @@ import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.install
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import kotlinx.serialization.json.Json
+import com.example.sistemavet.modulo.citaRoutes
+import com.example.sistemavet.modulo.mascotaRoutes
 
 fun main() { // A la hora de correr presionen edit y lo corren de ahi con las credenciales de la base de datos.
     // Si no te dicen
@@ -58,6 +60,8 @@ fun Application.module() {
         usuarioRoutes()
         // notificaciones las obtiene y si las leyo
         notificacionRoutes()
+        citaRoutes()
+        mascotaRoutes()
 
     }
 }
