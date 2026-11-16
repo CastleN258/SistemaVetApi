@@ -3,7 +3,7 @@ package com.example.sistemavet
 import java.sql.Connection
 import java.sql.DriverManager
 
-// Las credenciales NUNCA van en el código: se leen de variables de entorno.
+
 object Database {
     private val server = System.getenv("DB_SERVER") ?: error("Falta la variable de entorno DB_SERVER")
     private val name = System.getenv("DB_NAME") ?: error("Falta la variable de entorno DB_NAME")
