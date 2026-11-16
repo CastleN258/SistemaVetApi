@@ -126,3 +126,59 @@ data class RecetaDto(
     val frecuencia: String, val duracion: String, val instrucciones: String
 )
 
+
+// Veterinario: citas
+@Serializable
+data class CitaVetDto(
+    val id: Int, val mascotaId: Int, val mascota: String, val propietarioId: Int,
+    val propietario: String, val fecha: String, val hora: String,
+    val motivo: String, val estado: String
+)
+
+@Serializable
+data class CambioEstadoRequest(val estado: String)          // CONFIRMADA | CANCELADA
+
+@Serializable
+data class ReprogramarRequest(val fecha: String, val hora: String)   // dd/MM/yyyy y HH:mm
+
+@Serializable
+data class CompletarCitaRequest(
+    val fechaAtencion: String, val motivo: String, val diagnostico: String,
+    val tratamiento: String, val peso: Double, val observaciones: String? = null
+)
+
+@Serializable
+data class IdCreado(val id: Int)
+
+// Veterinario: expedientes, vacunas, alergias y recetas
+@Serializable
+data class MascotaVetDto(
+    val id: Int, val propietarioId: Int, val propietario: String, val nombre: String,
+    val especie: String, val raza: String, val sexo: String,
+    val fechaNacimiento: String, val pesoAproximado: Double
+)
+
+@Serializable
+data class ConsultaVetDto(
+    val id: Int, val mascotaId: Int, val mascota: String,
+    val propietario: String, val fechaAtencion: String
+)
+
+@Serializable
+data class VacunaRequest(
+    val mascotaId: Int, val nombre: String,
+    val fechaAplicacion: String, val fechaProximaDosis: String     // dd/MM/yyyy
+)
+
+@Serializable
+data class AlergiaRequest(
+    val mascotaId: Int, val nombre: String,
+    val observaciones: String? = null, val consultaId: Int? = null
+)
+
+@Serializable
+data class RecetaRequest(
+    val consultaId: Int, val medicamento: String, val dosis: String,
+    val frecuencia: String, val duracion: String, val instrucciones: String? = null
+)
+

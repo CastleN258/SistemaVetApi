@@ -19,12 +19,21 @@ import kotlinx.serialization.json.Json
 import com.example.sistemavet.modulo.citaRoutes
 import com.example.sistemavet.modulo.mascotaRoutes
 import com.example.sistemavet.modulo.rutasConsultasProp
+import com.example.sistemavet.modulo.citasVetRoutes
+import com.example.sistemavet.modulo.expedienteVetRoutes
+
 
 
 
 fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
-        .start(wait = true)
+    val port = System.getenv("PORT")?.toIntOrNull() ?: 8080
+
+    embeddedServer(
+        Netty,
+        port = port,
+        host = "0.0.0.0",
+        module = Application::module
+    ).start(wait = true)
 }
 
 fun Application.module() {
@@ -63,9 +72,16 @@ fun Application.module() {
         usuarioRoutes()
         // notificaciones las obtiene y si las leyo
         notificacionRoutes()
+        // Citas de propietario
         citaRoutes()
+        // Registro de mascotas
         mascotaRoutes()
+        // Consultas de propietario
        rutasConsultasProp()
+        // Citas veterinario
+        citasVetRoutes()
+        // Expedientes veterinario
+        expedienteVetRoutes()
 
     }
 }
